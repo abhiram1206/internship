@@ -1,0 +1,25 @@
+.about-us{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 3vw;
+    gap: 20px;
+}
+.about-us h1{
+    font-size: 3vw;
+    font-weight: 400;
+}
+.about{
+    display: flex;
+    padding: 1vw;
+    gap: 40px;
+}
+.back{
+    width: 1vw;
+    display: flex;
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

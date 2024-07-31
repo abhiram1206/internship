@@ -1,0 +1,45 @@
+.sm-container{
+    color: white;
+    display: flex;
+    padding: 5vw;
+    gap: 2vw;
+}
+.sm-icons{
+    display: flex;
+    gap: 1vw;
+}
+.sm-icons img{
+    background-color: white;
+    width: 4vw;
+    border-radius: 50%;
+    margin: 4vw 0;
+}
+.sm-content p{
+    font-size: 0.9vw;
+}
+.sm-links{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.linkss{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+.linkss *{
+    color: #838383;
+}
+
+@media (max-width: 600px){
+    .sm-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .sm-icons img{
+        background-color: white;
+        width: 8vw;
+        border-radius: 50%;
+        margin: 4vw 0;
+    }
+}
