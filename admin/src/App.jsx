@@ -17,6 +17,7 @@ import OrderList from './components/OrderList/OrderList'
 import OrderTracking from './components/OrderTracking/OrderTracking'
 import Query from './components/Querys/Query'
 import Contactus from './components/Contactus/Contactus'
+import UpdateProduct from './components/UpdateProduct/UpdateProduct'
 
 export const UserContext = createContext({})
 export const CategoryContext = createContext({})
@@ -43,6 +44,7 @@ const App = ({type}) => {
           <Route path='category-list' element={<CategoryList/>}/>
           <Route path='addcategory' element={<Category/>}/>
           <Route path='product' element={<ProductAdd/>} />
+          <Route path='update-product/:id' element={<UpdateProduct/>} />
           <Route path='querys' element={<Query/>} />
           <Route path='contactus' element={<Contactus/>} />
           <Route path='orders-list' element={<OrderList/>} />

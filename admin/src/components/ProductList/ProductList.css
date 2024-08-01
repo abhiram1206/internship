@@ -52,4 +52,20 @@
   .delete-icon:hover {
     transform: scale(1.1);
   }
-  
+
+.dropdowns img{
+  width: 2vw;
+}
+.dropdown-menu{
+  position: absolute;
+  width: 15%;
+  right: 100px;
+  background-color: #fff;
+}
+.dropdown-menu *{
+  padding: 1vw 2vw;
+  cursor: pointer;
+}
+.dropdown-menu *:hover{
+  background-color: #e2e2e2;
+}

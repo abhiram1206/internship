@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './ProductList.css';
-import { Link } from 'react-router-dom';
-import deleteicon from '../../assets/delete.png';
+import { Link, useNavigate } from 'react-router-dom';
+import menu from '../../assets/dots.png';
 
 const ProductList = () => {
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     fetchProducts();
@@ -30,11 +32,20 @@ const ProductList = () => {
     }
   };
 
+  const updateProduct = (id) => {
+    navigate(`/update-product/${id}`)
+    console.log(`Update product with ID: ${id}`);
+  };
+
   const renderValue = (value) => {
     if (value && typeof value === 'object' && value.$numberDecimal) {
       return parseFloat(value.$numberDecimal);
     }
     return value;
+  };
+
+  const toggleDropdown = (id) => {
+    setOpenDropdown(openDropdown === id ? null : id);
   };
 
   return (
@@ -46,8 +57,9 @@ const ProductList = () => {
             <th>Category</th>
             <th>Price</th>
             <th>Offer Price</th>
+            <th>Weight</th>
             <th>Stock</th>
-            <th></th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -55,22 +67,30 @@ const ProductList = () => {
             <tr key={e._id}>
               <td>
                 <Link to={`/product/${e._id}`} className="product-name">
-                  <img src={e.image} width={40} alt={e.name} />
+                  <img src={`http://localhost:3000/${e.image}`} width={40} height={40} alt={e.name} />
                   <span>{e.name}</span>
                 </Link>
               </td>
               <td>{e.categoryinProduct}</td>
               <td>{renderValue(e.price)}</td>
               <td>{renderValue(e.offerprice)}</td>
+              <td>{renderValue(e.productWeight)}</td>
               <td>{renderValue(e.countInStock)}</td>
               <td>
-                <img
-                  src={deleteicon}
-                  width={20}
-                  alt="delete"
-                  className="delete-icon"
-                  onClick={() => deleteProduct(e._id)}
-                />
+                <div className="dropdowns">
+                  <img 
+                    src={menu}
+                    alt="menu"
+                    className="dropdown-toggle"
+                    onClick={() => toggleDropdown(e._id)}
+                  />
+                  {openDropdown === e._id && (
+                    <div className="dropdown-menu">
+                      <div className="dropdown-item" onClick={() => updateProduct(e._id)}>Update</div>
+                      <div className="dropdown-item" onClick={() => deleteProduct(e._id)}>Delete</div>
+                    </div>
+                  )}
+                </div>
               </td>
             </tr>
           ))}

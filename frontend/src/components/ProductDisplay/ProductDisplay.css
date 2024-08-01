@@ -81,15 +81,14 @@
   }
   
   .product-dis{
-    padding: 2.5vw;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: 2vw;
   gap: 2vw;
 }.product-card-1 {
   display: grid;
-  height: 100%;
+  height: 25vw;
   grid-template-columns: 1fr 2.5fr;
   color: #ffffff;
   border-radius: 20px;
@@ -196,7 +195,7 @@
     flex-direction: column;
   }
   .filter{
-    width: 90%;
+    width: 84%;
     display: none;
   }
   .active{
@@ -205,6 +204,13 @@
   }
   .product-dis{
     width: 95%;
+  }.product-card-1 {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 2.5fr;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #ffffff60;
   }
   .left-hr{
     display: none;
@@ -250,7 +256,7 @@
 }
 @media only screen and (max-width: 450px){
   .product-card-1{
-    height: 40vw;
+    height: 100%;
   }
   .title{
     font-size: 3.5vw;

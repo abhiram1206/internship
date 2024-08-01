@@ -13,13 +13,19 @@ const ProductReview = () => {
     const userId = userAuth ? userAuth._id : null;
 
     const userAuthTroughServer = (serverRoute, formData) =>{
-        axios.post(import.meta.env.VITE_SERVER_DOMAIN + serverRoute, formData).then(({data})=>{
-            toast.success("Review Added Successfully")
-            window.location.reload();
-        }).catch(({response})=>{
-            toast.error(response.data.error)
-        })
+        if(userId){
+            axios.post(import.meta.env.VITE_SERVER_DOMAIN + serverRoute, formData).then(({data})=>{
+                toast.success("Review Added Successfully")
+                window.location.reload();
+            }).catch(({response})=>{
+                toast.error(response.data.error)
+            })
+        } else {
+            toast.error("please login to reivew")
+        }
     }
+
+    
 
     const handleSubmit = (e) => {
         let serverRoute = `/product-review/${id}/${userId}`;
@@ -41,7 +47,7 @@ const ProductReview = () => {
             <Toaster/>
             <div className="comment">
                 <form ref={authform}>
-                    <textarea name='comment' placeholder='Leave a Comment' id=""></textarea>
+                    <textarea name='comment' placeholder='Leave a Comment' id="" required></textarea>
                 </form>
             </div>
             <div className='stars-review'>

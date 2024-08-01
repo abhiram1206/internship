@@ -411,6 +411,38 @@ server.post('/product', upload.single('image'), async (req, res) => {
     }
 });
 
+server.post('/updateproduct/:id', upload.single('image'), async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      // Find the product by ID
+      const product = await ProductSchema.findById(id);
+      if (!product) {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+  
+      // Update product details
+      product.name = req.body.name || product.name;
+      product.description = req.body.description || product.description;
+      product.categoryinProduct = req.body.categoryinProduct || product.categoryinProduct;
+      product.productWeight = req.body.productWeight || product.productWeight;
+      product.offerprice = req.body.offerprice || product.offerprice;
+      product.price = req.body.price || product.price;
+      product.countInStock = req.body.countInStock || product.countInStock;
+  
+      // Update image if provided
+      if (req.file) {
+        product.image = req.file.path;
+      }
+  
+      // Save the updated product
+      await product.save();
+      res.status(200).json({ message: 'Product updated successfully', product });
+    } catch (error) {
+      console.error('Error updating product:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
 
 server.get('/product' ,async(req,res) =>{
     try {
@@ -944,33 +976,52 @@ server.post('/product-review/:productId/:userId',async(req, res)=>{
 });
 
 server.get("/product-review/:productId", async (req, res) => {
-    let productId = req.params.productId; // Correctly extract productId
+    let productId = req.params.productId;
     try {
         let product = await ProductSchema.findById(productId);
         if (!product) {
             return res.status(404).send('Product not found');
         }
-        let finalData = await Promise.all(product.reviews.map(async (p)=>{
-            let user = await User.findById(p.userId)
-            return{
-                id: p._id,
-                userId:{
-                    id: user._id,
-                    username: user.personal_info.username,
-                    email: user.personal_info.email,
-                    profile_img: user.personal_info.profile_img,
-                    fullname: user.personal_info.fullname,
-                },
-                rating: p.rating,
-                comment: p.comment
+
+        let finalData = await Promise.all(product.reviews.map(async (review) => {
+            let user = await User.findById(review.userId);
+            if (user) {
+                return {
+                    id: review._id,
+                    userId: {
+                        id: review.userId,
+                        username: user.personal_info.username || 'Anonymous',
+                        email: user.personal_info.email || 'No email',
+                        profile_img: user.personal_info.profile_img || 'default_img.jpg',
+                        fullname: user.personal_info.fullname || 'Anonymous',
+                    },
+                    rating: review.rating,
+                    comment: review.comment
+                };
+            } else {
+                return {
+                    id: review._id,
+                    userId: {
+                        id: review.userId,
+                        username: 'Unknown User',
+                        email: 'Unknown Email',
+                        profile_img: 'default_img.jpg',
+                        fullname: 'Unknown User',
+                    },
+                    rating: review.rating,
+                    comment: review.comment
+                };
             }
-        }))
-        res.send({ data: finalData }); // Send reviews if found
+        }));
+
+        console.log(finalData);
+        res.send({ data: finalData });
     } catch (error) {
         console.error('Error fetching reviews:', error);
-        return res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ message: 'Internal server error' });
     }
 });
+
 
 server.delete('/product-review/:productId/:reviewId', async (req, res) => {
     const { productId, reviewId } = req.params;
