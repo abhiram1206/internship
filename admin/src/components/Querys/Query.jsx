@@ -69,12 +69,12 @@ const Query = () => {
                                 <td>{e.howDoYouKnow}</td>
                                 <td>{e.query}</td>
                                 <td>
-                                    <button
+                                    <a
+                                        href={`mailto:${e.email}`}
                                         className="reply-button"
-                                        onClick={() => handleReply(e.email)}
                                     >
                                         Reply
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         ))

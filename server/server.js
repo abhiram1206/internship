@@ -22,6 +22,7 @@ import fs, { fstat } from 'fs';
 import Razorpay from 'razorpay';
 import OrderSchema from './Schemas/OrderSchema.js';
 import crypto from 'crypto';
+import nodemailer from 'nodemailer';
 import CustomerCareSchema from './Schemas/CustomerCare.js';
 
 
@@ -767,7 +768,8 @@ server.post('/create-order-card', async (req, res) => {
             paymentType: order.paymentType,
             paymentStatus: order.paymentStatus,
             DeliveryStatus: order.DeliveryStatus,
-            bankdetails: order.bankdetails
+            bankdetails: order.bankdetails,
+            joinedAt: order.joinedAt
         }));
 
         res.status(200).json(formattedOrders);
@@ -1137,6 +1139,7 @@ server.get('/querys',async(req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
     }
 })
+
 
 server.listen(PORT, () => {
     console.log('listening on port ' + PORT);

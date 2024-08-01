@@ -41,6 +41,11 @@ const OrderSchema = new mongoose.Schema({
     bankdetails:{
         type: Object
     }
+},{ 
+    timestamps: {
+        createdAt: 'joinedAt'
+    } 
+
 });
 
 // Define your models

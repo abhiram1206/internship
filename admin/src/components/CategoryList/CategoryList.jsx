@@ -6,10 +6,31 @@ import axios from 'axios';
 
 const CategoryList = () => {
     const [data, setData] = useState([]);
+    const [products, setproducts] = useState([]);
 
     useEffect(() => {
         fetchCategories();
+        fetchProducts();
     }, []);
+
+    const fetchProducts = async () => {
+        try {
+          const response = await fetch('http://localhost:3000/product', { method: 'GET' });
+          const result = await response.json();
+          console.log(result, 'ProductData');
+          setproducts(result.data);
+        } catch (error) {
+          console.error('Error fetching products:', error);
+        }
+    };
+
+    let productsbycategory = []
+
+    products.map((e)=>{
+        productsbycategory.push(e.categoryinProduct)
+    })
+
+    console.log(productsbycategory.length)
 
     const fetchCategories = async () => {
         try {
@@ -53,7 +74,7 @@ const CategoryList = () => {
                             <p>{e.category.name}</p>
                         </Link>
                         <div className="email">
-                            <p>0</p>
+                            <p>{productsbycategory.length}</p>
                         </div>
                         <div className="registered">
                             <p>{formattedDate}</p>
