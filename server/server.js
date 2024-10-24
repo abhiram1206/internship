@@ -144,41 +144,50 @@ server.post("/signin", (req, res) => {
 });
 
 server.post("/google-auth", async (req, res) => {
-    let { access_token } = req.body;
+    try {
+        let { access_token } = req.body;
 
-    getAuth().verifyIdToken(access_token).then(async(decodedUser)=>{
-        let { email,name,picture } = decodedUser;
+        // Verify the ID token
+        let decodedUser = await getAuth().verifyIdToken(access_token);
+        let { email, name, picture } = decodedUser;
 
-        picture = picture.replace("s96-c","s384-c")
+        // Update the picture URL if needed
+        picture = picture.replace("s96-c", "s384-c");
 
-        let user= await User.findOne({"personal_info.email":email}).select("personal_info.fullname personal_info.mobilenumber personal_info.username personal_info.profile_img google_auth")
-        .then((u)=>{
-            return u || null
-        }).catch(err => {
-            return res.status(500).json({"error":err.message})
-        })
+        // Find the user in the database
+        let user = await User.findOne({ "personal_info.email": email })
+            .select("personal_info.fullname personal_info.mobilenumber personal_info.username personal_info.profile_img google_auth");
 
-        if(user){
-            if(!user.google_auth){
-                return res.status(403).json({"error":"This email was signed up without google. Please login with password to access the account."})
+        if (user) {
+            // Check if the user is not using Google Auth
+            if (!user.google_auth) {
+                return res.status(403).json({ "error": "This email was signed up without Google. Please login with password to access the account." });
             }
-        }else {
+        } else {
+            // If user doesn't exist, create a new one
             let username = await generateUsername(email);
-            console.log(username)
-            user = new User({personal_info:{fullname: name,email,username},google_auth:true})
-            await user.save().then((u)=>{
-                user=u;
-                return res.status(200).json(formatDatatoSend(user))
-            }).catch((err)=>{
-                return res.status(500).json({"Error":err.message})
-            })
+            user = new User({
+                personal_info: { fullname: name, email, username },
+                google_auth: true
+            });
+
+            // Save the new user to the database
+            await user.save();
         }
-        
-        return res.status(200).json(formatDatatoSend(user))
-    }).catch(err =>{
-        return res.status(500).json({"error":"failed to authenticate with google. Try with some other google account"})
-    })
-})
+
+        // Return the formatted user data
+        return res.status(200).json(formatDatatoSend(user));
+
+    } catch (err) {
+        // Handle any errors that occur
+        if (err.code === 'auth/id-token-expired') {
+            return res.status(401).json({ "error": "Google ID token has expired. Please try again." });
+        } else {
+            return res.status(500).json({ "error": err.message });
+        }
+    }
+});
+
 
 
 

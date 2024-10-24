@@ -30,6 +30,14 @@
 .linkss *{
     color: #838383;
 }
+.sm-logo{
+    display: flex;
+    flex-direction: row;
+}
+.sm-icons img{
+    width: 40px;
+    padding: 5px;
+}
 
 @media (max-width: 600px){
     .sm-container{

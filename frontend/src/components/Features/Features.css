@@ -30,6 +30,10 @@
     background-color: #212121;
     padding: 2vw;
     border-radius: 10px;
+    gap: 10px;
+}
+.card-feature h3{
+    margin: 0;
 }
 .card-feature:hover{
     background-color: rgb(0, 111, 121);
@@ -38,6 +42,12 @@
 }
 .card-feature p{
     font-size: 1vw;
+}
+.card-feature-top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 @media only screen and (max-width: 500px){
     .features-list{

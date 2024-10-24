@@ -17,6 +17,9 @@ import OrderHistory from './components/OrderHistory/OrderHistory'
 import OrderTracking from './components/OrderTracking/OrderTracking'
 import CustomerCare from './components/CustomerCare/CustomerCare'
 import AboutUs from './components/AboutUs/AboutUs'
+import Contactus from './components/Contactus/Contactus'
+import SocialMedia from './components/SocialMedia/SocialMedia'
+import Footer from './components/Footer/Footer'
 
 export const UserContext = createContext({})
 
@@ -41,12 +44,13 @@ const App = ({type}) => {
             <Route path="/signup" element={<UserAuth type="sign-up"/>}/>
             <Route path='/profile' element={<Profile/> }/>
             <Route path='/cart' element={<><Navbar/><hr/><Cart/></> }/>
-            <Route path='/product' element={<><Navbar/><hr style={{margin:0}}/><Products/></> }/>
+            <Route path='/product' element={<><Navbar/><hr style={{margin:0}}/><Products/><SocialMedia/><Footer/></> }/>
             <Route path='/products/:id' element={<><Navbar/><hr/><ProductDetail/></> }/>
             <Route path='/search' element={<Search/>} />
             <Route path='/order' element={<OrderPage/>} />
-            <Route path='/customer-care' element={<CustomerCare/>} />
-            <Route path='/aboutus' element={<AboutUs/>} />
+            <Route path='/customer-care' element={<><CustomerCare/></>} />
+            <Route path='/aboutus' element={<><AboutUs/><SocialMedia/><Footer/></>} />
+            <Route path='/contactus' element={<><Contactus/><SocialMedia/><Footer/></>} />
             <Route path='/confirmed-order' element={<ConfirmedOrder/>} />
             <Route path={`/orders-list`} element={<><Navbar/><hr/><OrderHistory/></>} />
             <Route path={`/order-tracking`} element={<><Navbar/><hr/><OrderTracking/></>} />

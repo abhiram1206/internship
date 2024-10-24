@@ -78,6 +78,9 @@
   .hp-hr-cat {
     width: 100%;
   }
+  .hp-product-img{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  }
   
   .hp-product-img img {
     width: 100%;

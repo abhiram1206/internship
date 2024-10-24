@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CustomerCare.css'; // Make sure to add your styles
 
-const CustomerCare = () => {
+const CustomerCare = ({heading}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
@@ -58,7 +58,7 @@ const CustomerCare = () => {
 
   return (
     <div className='Customer-care'>
-      <h1>Customer Care</h1>
+      <h1>{heading? heading : "Customer Care"}</h1>
       <form onSubmit={handleSubmit}>
         <div className="inputs">
           <input

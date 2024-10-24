@@ -3,17 +3,20 @@
 .order-page-container {
     max-width: 100%;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #000;
     padding: 20px ;
     color: black;
 }
 
 .order-details {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .container{
     border: 1px solid #000000;
     padding: 1vw;
+    background-color: white;
+    width: 110%;
+  margin-left: 30px;
 }
   
   .order-table {
@@ -129,6 +132,7 @@
     flex-direction: column;
     margin: 4vw 0;
     border: 1px solid #000000;
+    background-color: white;
     padding: 2vw;
   }
   .address button{
@@ -160,6 +164,7 @@
     flex-direction: column;
     margin: 4vw 0;
     border: 1px solid #000000;
+    background-color: white;
     padding: 2vw;
   }
   .payment-option{

@@ -39,7 +39,7 @@ const Navbar = () => {
                 <li><Link to="/" onClick={()=>setMenu('home')} id='home' className={menu === 'home'?'active':""}>Home</Link></li>
                 <li><Link to={'/product'} onClick={()=>setMenu('products')} className={menu==='products'?'active':""}>Products</Link></li>
                 <li><Link to={'/aboutus'} onClick={()=>setMenu('aboutus')} className={menu==='aboutus'?'active':""}>About us</Link></li>
-                <li><Link to={''} onClick={()=>setMenu('contactus')} className={menu==='contactus'?'active':""}>Contact us</Link></li>
+                <li><Link to={'/contactus'} onClick={()=>setMenu('contactus')} className={menu==='contactus'?'active':""}>Contact us</Link></li>
             </ul>
         </div>
         {access_token ?<div className="navbar-right">
