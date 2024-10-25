@@ -4,7 +4,7 @@ import './AddAddress.css'
 import axios from 'axios'
 import { UserContext } from '../../App';
 
-const AddressForm = ({ onSelectAddress }) => {
+const AddAddress = ({ onSelectAddress }) => {
 
     const { userAuth, userAuth:{ _id } } = useContext(UserContext)
 
@@ -56,4 +56,4 @@ const AddressForm = ({ onSelectAddress }) => {
   );
 };
 
-export default AddressForm;
+export default AddAddress;
