@@ -13,8 +13,8 @@ import serviceAccountKey from './upvc-website-firebase-adminsdk-4eilf-bcab6c9d3e
 import { getAuth } from 'firebase-admin/auth';
 import admin from 'firebase-admin';
 import multer from 'multer';
-import { GridFsStorage } from 'multer-gridfs-storage';
-import Grid from 'gridfs-stream';
+// import { GridFsStorage } from 'multer-gridfs-storage';
+// import Grid from 'gridfs-stream';
 import path from 'path';
 import bodyParser from 'body-parser'
 import { fileURLToPath } from 'url';
