@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import './OrderTracking.css'; // Import the CSS styles
 
-const OrdersTracking = () => {
+const OrderTracking = () => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
 
@@ -135,4 +135,4 @@ const OrdersTracking = () => {
   );
 };
 
-export default OrdersTracking;
+export default OrderTracking;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import './OrderList.css';
 
-const OrdersList = () => {
+const OrderList = () => {
     const [orders, setOrders] = useState([]);
     const [error, setError] = useState(null);
 
@@ -133,4 +133,4 @@ const OrdersList = () => {
     );
 };
 
-export default OrdersList;
+export default OrderList;
