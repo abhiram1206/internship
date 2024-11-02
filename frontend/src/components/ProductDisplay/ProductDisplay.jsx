@@ -17,7 +17,7 @@ const ProductDisplay = () => {
   const { cart, dispatch } = useCart();
 
   useEffect(() => {
-    fetch('http://localhost:3000/category-list')
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'/category-list')
       .then((res) => res.json())
       .then((data) => {
         setData(data.data);
@@ -25,7 +25,7 @@ const ProductDisplay = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/product')
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'/product')
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.data);
@@ -146,7 +146,7 @@ const ProductDisplay = () => {
           return (
             <div className="product-card-1" key={e._id}>
               <div className="product-image-1">
-                <img src={`http://localhost:3000/${e.image}`} alt={e.name} />
+                <img src={import.meta.env.VITE_SERVER_DOMAIN +`/${e.image}`} alt={e.name} />
               </div>
               <div className="product-details-1">
                 <h3><Link to={`/products/${e._id}`} className='title'>{e.name}</Link></h3>

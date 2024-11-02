@@ -38,7 +38,7 @@ const CustomerCare = ({heading}) => {
     console.log(formData)
 
     // Send data to backend
-    fetch('http://localhost:3000/customer-care', { // Replace with your backend endpoint
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'/customer-care', { // Replace with your backend endpoint
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

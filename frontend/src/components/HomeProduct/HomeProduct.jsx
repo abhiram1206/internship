@@ -19,7 +19,7 @@ const HomeProduct = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/category-list', {
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'/category-list', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const HomeProduct = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/product', {
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'/product', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -125,7 +125,7 @@ const HomeProduct = () => {
             return (
               <div className="hp-prod" key={index}>
                 <div className="hp-product-img">
-                  <img src={`http://localhost:3000/${e.image}`} alt="" />
+                  <img src={import.meta.env.VITE_SERVER_DOMAIN +`/${e.image}`} alt="" />
                 </div>
                 <div className="hp-product-details">
                   <div className="hp-product-heading">

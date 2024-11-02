@@ -6,7 +6,7 @@ import { useState } from 'react'
 const Contactus = () => {
     const [data, setData] =useState([])
     useEffect(()=>{
-        fetch('http://localhost:3000/get-contactus',{
+        fetch(import.meta.env.VITE_SERVER_DOMAIN + 'get-contactus',{
         method: 'GET',
         })
         .then((res) => res.json())

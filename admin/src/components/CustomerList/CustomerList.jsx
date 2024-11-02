@@ -7,7 +7,7 @@ const CustomerList = ({CustomerData}) => {
 
   const [data, setData] =useState([])
   useEffect(()=>{
-    fetch('http://localhost:3000/customer-list',{
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'customer-list',{
       method: 'GET',
     })
     .then((res) => res.json())

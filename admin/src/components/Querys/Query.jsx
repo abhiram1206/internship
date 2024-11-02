@@ -5,7 +5,7 @@ const Query = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/querys', {
+        fetch(import.meta.env.VITE_SERVER_DOMAIN +'querys', {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -25,7 +25,7 @@ const Query = () => {
     const handleReply = (email) => {
         const message = prompt('Enter your reply message:');
         if (message) {
-            fetch('http://localhost:3000/send-reply', {
+            fetch(import.meta.env.VITE_SERVER_DOMAIN +'send-reply', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

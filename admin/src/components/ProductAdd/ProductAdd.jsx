@@ -9,7 +9,7 @@ const ProductAdd = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/category-list', {
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'category-list', {
       method: 'GET',
     })
       .then((res) => res.json())

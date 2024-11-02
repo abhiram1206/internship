@@ -13,7 +13,7 @@ const HomeReview = () => {
     const stars = [1, 2, 3, 4, 5];
 
     useEffect(() => {
-        axios.get('http://localhost:3000/random-reviews')
+        axios.get(import.meta.env.VITE_SERVER_DOMAIN +'/random-reviews')
             .then((res) => {
                 if (Array.isArray(res.data.data)) {
                     setReviewData(res.data.data);

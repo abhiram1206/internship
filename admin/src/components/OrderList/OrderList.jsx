@@ -7,7 +7,7 @@ const OrderList = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:3000/orders-list')
+        fetch(import.meta.env.VITE_SERVER_DOMAIN +'orders-list')
             .then((res) => {
                 if (!res.ok) {
                     throw new Error(`HTTP error! Status: ${res.status}`);
@@ -26,7 +26,7 @@ const OrderList = () => {
 
     const handleConfirmOrder = (orderId) => {
         // Make a request to update the order status
-        fetch('http://localhost:3000/update-order-status', {
+        fetch(import.meta.env.VITE_SERVER_DOMAIN +'update-order-status', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const OrderList = () => {
                         <div className="products-card">
                             {order.items.map(item => (
                                 <div className="product-item" key={item._id}>
-                                    <img src={`http://localhost:3000/${item.image}`} alt={item.name} />
+                                    <img src={import.meta.env.VITE_SERVER_DOMAIN +`${item.image}`} alt={item.name} />
                                     <div className='product-item-details'>
                                         <p><strong>{item.name}</strong></p>
                                         <p>₹{item.offerprice} x {order.quantity}</p>

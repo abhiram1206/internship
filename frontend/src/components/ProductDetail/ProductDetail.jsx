@@ -26,7 +26,7 @@ const ProductDetail = () => {
     const userId = userAuth ? userAuth._id : null;
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products/${id}`)
+        fetch(import.meta.env.VITE_SERVER_DOMAIN +`/products/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data.data); // Set the fetched product data
@@ -38,7 +38,7 @@ const ProductDetail = () => {
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:3000/product-review/${id}`)
+            axios.get(import.meta.env.VITE_SERVER_DOMAIN +`/product-review/${id}`)
                 .then((res) => setReviewData(res.data.data))
                 .catch((error) => console.error('Error fetching reviews:', error));
         }
@@ -47,7 +47,7 @@ const ProductDetail = () => {
     // Function to delete a review
     const deleteReview = (reviewId, reviewUserId) => {
         if(userId == reviewUserId){
-            axios.delete(`http://localhost:3000/product-review/${id}/${reviewId}`)
+            axios.delete(import.meta.env.VITE_SERVER_DOMAIN +`/product-review/${id}/${reviewId}`)
                 .then(() => {
                     // Filter out the deleted review from reviewData
                     setReviewData(prevReviewData => prevReviewData.filter(review => review._id !== reviewId));
@@ -112,7 +112,7 @@ const ProductDetail = () => {
                         return (
                             <div className="product-details">
                                 <div className="product-details-image">
-                                    <img src={`http://localhost:3000/${data.image}`} alt="" />
+                                    <img src={import.meta.env.VITE_SERVER_DOMAIN +`/${data.image}`} alt="" />
                                 </div>
                                 <div className="product-details-content">
                                     <h1>{data.name}</h1>

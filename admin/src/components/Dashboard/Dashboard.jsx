@@ -10,7 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://localhost:3000/customer-list');
+        const response = await fetch(import.meta.env.VITE_SERVER_DOMAIN +'customer-list');
         if (!response.ok) {
           throw new Error('Failed to fetch users');
         }
@@ -36,7 +36,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:3000/orders-list');
+        const response = await fetch(import.meta.env.VITE_SERVER_DOMAIN +'orders-list');
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
         }

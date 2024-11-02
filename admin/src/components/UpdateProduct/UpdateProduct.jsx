@@ -13,7 +13,7 @@ const UpdateProduct = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/category-list', {
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'category-list', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -23,7 +23,7 @@ const UpdateProduct = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +`products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data.data); // Set the fetched product data

@@ -6,7 +6,7 @@ const CustomerDetails = () => {
   const { id } = useParams();
   const [data, setData] =useState(null)
   useEffect(()=>{
-    fetch(`http://localhost:3000/customer/${id}`,{
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +`customer/${id}`,{
       method: 'GET',
     })
     .then((res) => res.json())

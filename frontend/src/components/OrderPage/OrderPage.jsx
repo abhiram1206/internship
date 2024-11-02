@@ -24,7 +24,7 @@
 
     useEffect(() => {
       if (userId) {
-        axios.get(`http://localhost:3000/get-addresses/${userId}`)
+        axios.get(import.meta.env.VITE_SERVER_DOMAIN +`/get-addresses/${userId}`)
           .then((res) => setAddresses(res.data.data))
           .catch((error) => console.error('Error fetching addresses:', error));
       }
@@ -32,7 +32,7 @@
 
     const deleteAddress = (addressId) => {
       if (userId) {
-        axios.delete(`http://localhost:3000/delete-address/${userId}/${addressId}`)
+        axios.delete(import.meta.env.VITE_SERVER_DOMAIN +`/delete-address/${userId}/${addressId}`)
           .then(() => setAddresses(addresses.filter(address => address._id !== addressId)))
           .catch((error) => console.error('Error deleting address:', error));
       }
@@ -73,7 +73,7 @@
       const orderData = { userId, addressId: selectedAddress, paymentMethod: 'online', totalAmount: total, cart, quantity };
 
       try {
-        const { data } = await axios.post('http://localhost:3000/create-order-card', orderData);
+        const { data } = await axios.post(import.meta.env.VITE_SERVER_DOMAIN +'/create-order-card', orderData);
         const options = {
           key: 'rzp_test_A9SPOLwh2GZDnb',
           amount: data.amount.toString(),
@@ -92,7 +92,7 @@
             const combinedData = { paymentData, orderData };
 
             try {
-              const result = await axios.post('http://localhost:3000/payment-success', combinedData);
+              const result = await axios.post(import.meta.env.VITE_SERVER_DOMAIN +'/payment-success', combinedData);
               if (result.data.success) {
                 toast.success('Payment Successful');
                 navigate('/confirmed-order');

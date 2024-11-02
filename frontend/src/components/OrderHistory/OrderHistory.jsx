@@ -16,7 +16,7 @@ const OrderHistory = () => {
   }, [userId]);
 
   const fetchOrders = () => {
-    fetch(`http://localhost:3000/user-orders/${userId}`)
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +`/user-orders/${userId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -84,7 +84,7 @@ const OrderHistory = () => {
             <div className="products-card">
                 {order.items.map(item => (
                     <div className="product-item" key={item._id}>
-                        <img src={`http://localhost:3000/${item.image}`} alt={item.name} />
+                        <img src={import.meta.env.VITE_SERVER_DOMAIN +`/${item.image}`} alt={item.name} />
                         <div className='product-item-details'>
                             <p><strong>{item.name}</strong></p>
                             <p>₹{item.offerprice} x {order.quantity}</p>

@@ -12,7 +12,7 @@ const Searchcomponent = () => {
 
   useEffect(() => {
     if (query.length > 0) {
-      fetch(`http://localhost:3000/search?query=${query}`)
+      fetch(import.meta.env.VITE_SERVER_DOMAIN +`/search?query=${query}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);

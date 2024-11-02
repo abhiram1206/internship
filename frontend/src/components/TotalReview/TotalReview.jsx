@@ -12,7 +12,7 @@ const TotalReview = ({ productId, color }) => {
     }
     console.log(color)
 
-    axios.get(`http://localhost:3000/product-review/${productId}`)
+    axios.get(import.meta.env.VITE_SERVER_DOMAIN +`/product-review/${productId}`)
       .then((res) => {
         setReviews(res.data.data);
       })

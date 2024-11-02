@@ -25,7 +25,7 @@ const UserAuth = ({type}) => {
     }
 
     const handleSubmit = (e) => {
-        let serverRoute = type == "sign-in" ? "/sign-in" : "/sign-up";
+        let serverRoute = type == "sign-in" ? "sign-in" : "sign-up";
         e.preventDefault();
         let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
         let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password

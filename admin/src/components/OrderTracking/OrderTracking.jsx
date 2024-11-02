@@ -11,7 +11,7 @@ const OrderTracking = () => {
   }, []);
 
   const fetchOrders = () => {
-    fetch('http://localhost:3000/orders-list')
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'orders-list')
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -32,7 +32,7 @@ const OrderTracking = () => {
   };
 
   const handleUpdateOrderStatus = (orderId, newStatus) => {
-    fetch('http://localhost:3000/update-order-status-track', {
+    fetch(import.meta.env.VITE_SERVER_DOMAIN +'update-order-status-track', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

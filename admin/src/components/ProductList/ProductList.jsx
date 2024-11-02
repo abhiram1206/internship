@@ -14,7 +14,7 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:3000/product', { method: 'GET' });
+      const response = await fetch(import.meta.env.VITE_SERVER_DOMAIN +'product', { method: 'GET' });
       const result = await response.json();
       console.log(result, 'ProductData');
       setData(result.data);
@@ -25,7 +25,7 @@ const ProductList = () => {
 
   const deleteProduct = async (id) => {
     try {
-      await fetch(`http://localhost:3000/product/${id}`, { method: 'DELETE' });
+      await fetch(import.meta.env.VITE_SERVER_DOMAIN +`product/${id}`, { method: 'DELETE' });
       setData(data.filter(item => item._id !== id));
     } catch (error) {
       console.error('Error deleting product:', error);
@@ -67,7 +67,7 @@ const ProductList = () => {
             <tr key={e._id}>
               <td>
                 <Link to={`/product/${e._id}`} className="product-name">
-                  <img src={`http://localhost:3000/${e.image}`} width={40} height={40} alt={e.name} />
+                  <img src={import.meta.env.VITE_SERVER_DOMAIN +`${e.image}`} width={40} height={40} alt={e.name} />
                   <span>{e.name}</span>
                 </Link>
               </td>

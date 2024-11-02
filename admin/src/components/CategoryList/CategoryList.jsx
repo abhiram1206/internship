@@ -15,7 +15,7 @@ const CategoryList = () => {
 
     const fetchProducts = async () => {
         try {
-          const response = await fetch('http://localhost:3000/product', { method: 'GET' });
+          const response = await fetch(import.meta.env.VITE_SERVER_DOMAIN +'product', { method: 'GET' });
           const result = await response.json();
           console.log(result, 'ProductData');
           setproducts(result.data);
@@ -34,7 +34,7 @@ const CategoryList = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:3000/category-list', { method: 'GET' });
+            const response = await fetch(import.meta.env.VITE_SERVER_DOMAIN +'category-list', { method: 'GET' });
             const result = await response.json();
             console.log(result, "CustomerData");
             setData(result.data);
@@ -45,7 +45,7 @@ const CategoryList = () => {
 
     const deleteCategory = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:3000/categories/${id}`);
+            const response = await axios.delete(import.meta.env.VITE_SERVER_DOMAIN +`categories/${id}`);
             console.log(response.data.message);
             // Reload the page to update the list
             window.location.reload();
