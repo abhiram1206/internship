@@ -116,15 +116,15 @@ const ProductDetail = () => {
                                 </div>
                                 <div className="product-details-content">
                                     <h1>{data.name}</h1>
-                                    <div className="product-details-pricing">
+                                    {/* <div className="product-details-pricing">
                                         <span className="offer">₹{convertToNumber(data.offerprice)}</span>
                                         <del className="price">₹{convertToNumber(data.price)}</del>
                                         <span className="price">({percentage.toFixed(2)}% off)</span>
                                     </div>
                                     {
                                         quantity ? <h4 style={{color:"#fff"}}>₹{finalprice.toFixed(2)}</h4> : ""
-                                    }
-                                    <div className="product-details-button">
+                                    } */}
+                                    {/* <div className="product-details-button">
                                         {
                                             quantity === 0 ? (
                                                 <button onClick={() => addToCart(data)}>Add to Cart</button>
@@ -148,7 +148,7 @@ const ProductDetail = () => {
                                                 </div>
                                             )
                                         }
-                                    </div>
+                                    </div> */}
                                     <div className="product-details-description">
                                         <p>{data.description}</p>
                                     </div>
@@ -160,7 +160,7 @@ const ProductDetail = () => {
             ) : (
                 <p>Loading...</p>
             )}
-            <div className="reviews">
+            {/* <div className="reviews">
                 <div className="reviews-add-content">
                     <h2>Review this product</h2>
                     <p>Share your thoughts with other customers</p>
@@ -223,7 +223,7 @@ const ProductDetail = () => {
                         <p>No reviews yet</p>
                     )}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
