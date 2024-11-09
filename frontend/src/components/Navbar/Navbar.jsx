@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from '../../App';
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo1.png'
 import refer from '../../assets/refer-arrow.svg'
 import adduser from '../../assets/add-user.png'
 import carts from '../../assets/shopping-cart.png'

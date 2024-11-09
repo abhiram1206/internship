@@ -122,7 +122,7 @@ const ProductDisplay = () => {
             </div>
           ))}
         </div>
-        <div className="price-range">
+        {/* <div className="price-range">
           <h2>Price Range</h2>
           <input
             type="range"
@@ -133,7 +133,7 @@ const ProductDisplay = () => {
             className="slider"
           />
           <p>Up to ₹{priceRange}</p>
-        </div>
+        </div> */}
       </div>
       <hr className='left-hr' />
       <div className="product-dis">
@@ -150,18 +150,18 @@ const ProductDisplay = () => {
               </div>
               <div className="product-details-1">
                 <h3><Link to={`/products/${e._id}`} className='title'>{e.name}</Link></h3>
-                <div className="product-rating-1">
+                {/* <div className="product-rating-1">
                   <TotalReview productId={e._id}/>
                 </div>
                 <div className="product-pricing-1">
                   <span className="offer-price">₹{renderValue(e.offerprice)}</span>
                   <del className="original-price">₹{renderValue(e.price)}</del>
                   <span className="discount">({percentage.toFixed(2)}% off)</span>
-                </div>
-                {
+                </div> */}
+                {/* {
                   quantity ? <h4>₹{finalprice.toFixed(2)}</h4> : ""
-                }
-                <div className="add-button">
+                } */}
+                {/* <div className="add-button">
                   {quantity === 0 ? (
                     <img
                       className="black-add"
@@ -187,7 +187,7 @@ const ProductDisplay = () => {
                       />
                     </div>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           )

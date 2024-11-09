@@ -84,7 +84,7 @@ const HomeProduct = () => {
       setVisibleCount((prevCount) => prevCount + 3);
       setViewMoreClickCount(1);
     } else {
-      navigate('/product-page');
+      navigate('/product');
     }
   };
 
@@ -132,7 +132,7 @@ const HomeProduct = () => {
                   <h3><Link style={{color:"#000"}} to={`/products/${e._id}`} className='title'>{e.name}</Link></h3>
                   </div>
                   <div className="hp-below-card">
-                    <div className="hp-product-pricing">
+                    {/* <div className="hp-product-pricing">
                       <div className="hp-pricing">
                         <h2>₹{renderValue(e.offerprice)}</h2>
                         <div className="hp-pricing1">
@@ -146,8 +146,8 @@ const HomeProduct = () => {
                         quantity ? <h4>₹{finalprice.toFixed(2)}</h4> : ""
                       }
                       <TotalReview productId={e._id} color={"black"} />
-                    </div>
-                    <div className="hp-add-btn">
+                    </div> */}
+                    {/* <div className="hp-add-btn">
                       {quantity === 0 ? (
                         <img
                           className="hp-black-add"
@@ -170,7 +170,7 @@ const HomeProduct = () => {
                           />
                         </div>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

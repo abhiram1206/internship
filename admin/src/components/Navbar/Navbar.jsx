@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './Navbar.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo1.png'
 import user from '../../assets/user2.jpg';
 import { UserContext } from '../../App';
 import { removeFromSession } from '../session';
@@ -19,7 +19,7 @@ const Navbar = () => {
     <Navigate to={'/sign-in'}/>
     :
     <div className='navbar'>
-      <img className='logo' width={50} src={logo} alt="" />
+      <img className='logo' width={100} src={logo} alt="" />
       <div className="nav-right">
         <img className='profile' width={45} src={profile_img} alt="" />
         <div className="info">

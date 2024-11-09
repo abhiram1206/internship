@@ -16,12 +16,12 @@ const Home = () => {
     <div className='home'>
       <Mainbanner />
       <Features />
-      <BannerImage />
+      {/* <BannerImage /> */}
       <HomeProduct />
-      <HomeReview />
-      <div className="cc">
+      {/* <HomeReview /> */}
+      {/* <div className="cc">
       <CustomerCare />
-      </div>
+      </div> */}
       <SocialMedia/>
       <Footer />
     </div>
