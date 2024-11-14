@@ -42,7 +42,13 @@ const Navbar = () => {
                 <li><Link to={'/contactus'} onClick={()=>setMenu('contactus')} className={menu==='contactus'?'active':""}>Contact us</Link></li>
             </ul>
         </div>
-        {access_token ?<div className="navbar-right">
+        <div className="menu-drop" onClick={handleUserNavPanel} onBlur={handleNavBlur}>
+                <img src={menuicon} alt="" style={{height:"32px",alignItems:"center"}} className='menu'/>
+                {
+                    userNavPanel ? <MenuDropdown/> :''
+                }
+            </div>
+        {/* {access_token ?<div className="navbar-right">
             <Link to="/cart" className='cart-nav-btn button'>
                 <img className='bt' width="15" src={carts} alt="" />
             </Link>
@@ -52,13 +58,7 @@ const Navbar = () => {
             
             <Link to="/profile">
                 <img width="48" src={profile_img} alt="profile" style={{backgroundColor:"white", borderRadius:"50px"}}/>
-            </Link>  
-            <div className="menu-drop" onClick={handleUserNavPanel} onBlur={handleNavBlur}>
-                <img src={menuicon} alt="" style={{height:"32px",alignItems:"center"}} className='menu'/>
-                {
-                    userNavPanel ? <MenuDropdown/> :''
-                }
-            </div>   
+            </Link>     
         </div>
         :
         <div className="navbar-right">
@@ -76,7 +76,7 @@ const Navbar = () => {
                 </button>
             </Link>     
         </div>
-        }
+        } */}
         
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 import './SocialMedia.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo1.png'
 import facebook from '../../assets/facebook.png'
 import insta from '../../assets/instagram.png'
 import pintrest from '../../assets/social.png'
@@ -13,7 +13,7 @@ const SocialMedia = () => {
     <div className='sm-container'>
         <div className="sm-content">
             <div className="sm-logo">
-                <img width={100} src={logo} alt="" />
+                <img width={150} src={logo} alt="" />
                 <img width={100} src={made} alt="" />
             </div>
             <p>Our company is a comprehensive enterprise that integrates the research and development, production, sales, and service of PVC-U profiles in China. We offer a wide range of products including uPVC profiles, uPVC aluminum profiles, uPVC windows, uPVC doors, uPVC sliding windows, uPVC casement windows, uPVC swing doors, and more.</p>

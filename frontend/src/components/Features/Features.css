@@ -25,15 +25,19 @@
 
 .features-scroll-container {
   width: 100%;
-  overflow: hidden;
   position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .features-scroll-content {
   display: flex;
   gap: clamp(1rem, 2vw, 2rem);
   padding: clamp(1rem, 2vw, 2rem);
-  animation: scroll 30s linear infinite;
+  animation: scroll 10s linear infinite;
 }
 
 @keyframes scroll {
@@ -61,7 +65,7 @@
   padding: clamp(1rem, 3vw, 2rem);
   border-radius: 10px;
   gap: 1rem;
-  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  transition: transform 30s, background-color 0.3s, box-shadow 0.3s;
 }
 
 .card-feature:hover {
@@ -104,8 +108,16 @@
   }
 
   .card-feature {
-    max-width: 350px;
+    max-width: 100px;
     padding: 1rem;
+  }
+
+  .card-feature h3{
+    font-size: 14px;
+  }
+
+  .card-feature p{
+    font-size: 10px;
   }
 
   .card-feature:hover {
