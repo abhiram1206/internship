@@ -7,6 +7,7 @@ import TotalReview from '../TotalReview/TotalReview'
 import add from '../../assets/add.png';
 import greeenadd from '../../assets/add_icon_green.png';
 import redremove from '../../assets/remove_icon_red.png';
+import filter from '../../assets/filter.png';
 
 const ProductDisplay = () => {
   const [data, setData] = useState([]);
@@ -101,7 +102,7 @@ const ProductDisplay = () => {
 
   return (
     <div className='product-display'>
-      <button className='btn-filter' onClick={() => setCilckFilter(curr => !curr)}>Filters</button>
+      <button className='btn-filter' onClick={() => setCilckFilter(curr => !curr)}> <img src={filter} width={20} alt="" /> <p>Filters</p> </button>
       <div className={`filter ${cilckFilter ? "active" : ""}`}>
         <div className="filter-heading">
           <h1>Category</h1>

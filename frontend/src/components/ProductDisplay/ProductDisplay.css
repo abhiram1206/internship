@@ -217,7 +217,10 @@
     display: none;
   }
   .btn-filter{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     width: 100%;
     padding: 1vw;
     background-color: #ffffff60;

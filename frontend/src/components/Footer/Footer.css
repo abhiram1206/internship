@@ -8,7 +8,7 @@
 }
 .footer-content{
     display: flex;
-    gap: 1vw;
+    gap: 2vw;
     max-width: 600px;
     font-size: 1vw;
     align-items: center;
@@ -30,6 +30,9 @@
         display: flex;
         flex-direction: column;
         gap: 2vw;
+    }
+    .footer-content p{
+        font-size: 10px
     }
     .footer-content img{
         width: 20px;

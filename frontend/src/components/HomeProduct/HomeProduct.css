@@ -258,6 +258,10 @@
       align-items: center;
       justify-content: center;
     }
+
+    .text-hide{
+      display: none;
+    }
   
     .hp-pricing h2 {
       font-size: 6vw;
@@ -301,7 +305,7 @@
     }
   
     .hp-category-card img {
-      width: 15vw;
+      width: 20vw;
     }
   
     .hp-hr-cat {

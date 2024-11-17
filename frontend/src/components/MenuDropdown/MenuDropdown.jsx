@@ -9,11 +9,10 @@ const MenuDropdown = () => {
         <div className='menu-drop-down'>
             <div className="menu-drop-down-btn">
                 <Link to='/'>Home</Link>
-                <Link to='/'>Products</Link>
+                <Link to='/product'>Products</Link>
                 <Link to='/cart'>Cart</Link>
-                <Link to='/'>Search</Link>
-                <Link to='/'>Contact us</Link>
-                <Link to='/'>About us</Link>
+                <Link to='/contactus'>Contact us</Link>
+                <Link to='/aboutus'>About us</Link>
             </div>
         </div>  
     </AnimationWrapper>

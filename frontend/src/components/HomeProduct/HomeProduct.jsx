@@ -93,7 +93,7 @@ const HomeProduct = () => {
       <div className="hp-home-product-category">
         <div className="hp-txt">
           <h1>Explore Our Window Profiles</h1>
-          <p>
+          <p className='text-hide'>
             Choose from a diverse range of window profiles featuring exceptional designs crafted with the finest materials and advanced technology. Our mission is to enhance your living space and improve your comfort, one superior window at a time.
           </p>
         </div>
