@@ -10,7 +10,6 @@ const MenuDropdown = () => {
             <div className="menu-drop-down-btn">
                 <Link to='/'>Home</Link>
                 <Link to='/product'>Products</Link>
-                <Link to='/cart'>Cart</Link>
                 <Link to='/contactus'>Contact us</Link>
                 <Link to='/aboutus'>About us</Link>
             </div>
