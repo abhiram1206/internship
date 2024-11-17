@@ -13,7 +13,7 @@ const ProductDisplay = () => {
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [priceRange, setPriceRange] = useState(200); // Set default price range to 200
+  const [priceRange, setPriceRange] = useState(200);
   const [cilckFilter, setCilckFilter] = useState(false);
   const { cart, dispatch } = useCart();
 
@@ -83,11 +83,11 @@ const ProductDisplay = () => {
 
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
-        stars.push(<span key={i} className="star full">&#9733;</span>); // Full star
+        stars.push(<span key={i} className="star full">&#9733;</span>);
       } else if (hasHalfStar && i === fullStars) {
-        stars.push(<span key={i} className="star half">&#9733;</span>); // Half star
+        stars.push(<span key={i} className="star half">&#9733;</span>);
       } else {
-        stars.push(<span key={i} className="star">&#9733;</span>); // Empty star
+        stars.push(<span key={i} className="star">&#9733;</span>);
       }
     }
 
@@ -102,7 +102,10 @@ const ProductDisplay = () => {
 
   return (
     <div className='product-display'>
-      <button className='btn-filter' onClick={() => setCilckFilter(curr => !curr)}> <img src={filter} width={20} alt="" /> <p>Filters</p> </button>
+      {/* Filter button and filter section commented out
+      <button className='btn-filter' onClick={() => setCilckFilter(curr => !curr)}> 
+        <img src={filter} width={20} alt="" /> <p>Filters</p> 
+      </button>
       <div className={`filter ${cilckFilter ? "active" : ""}`}>
         <div className="filter-heading">
           <h1>Category</h1>
@@ -123,19 +126,12 @@ const ProductDisplay = () => {
             </div>
           ))}
         </div>
-        {/* <div className="price-range">
-          <h2>Price Range</h2>
-          <input
-            type="range"
-            min="0"
-            max="200" // Update max price to 200
-            value={priceRange}
-            onChange={(e) => setPriceRange(e.target.value)}
-            className="slider"
-          />
-          <p>Up to ₹{priceRange}</p>
-        </div> */}
+      </div> */}
+      
+      <div className="casement-heading">
+        <h1>Casement Series</h1>
       </div>
+
       <hr className='left-hr' />
       <div className="product-dis">
         {filteredProducts.map((e) => {
@@ -151,44 +147,6 @@ const ProductDisplay = () => {
               </div>
               <div className="product-details-1">
                 <h3><Link to={`/products/${e._id}`} className='title'>{e.name}</Link></h3>
-                {/* <div className="product-rating-1">
-                  <TotalReview productId={e._id}/>
-                </div>
-                <div className="product-pricing-1">
-                  <span className="offer-price">₹{renderValue(e.offerprice)}</span>
-                  <del className="original-price">₹{renderValue(e.price)}</del>
-                  <span className="discount">({percentage.toFixed(2)}% off)</span>
-                </div> */}
-                {/* {
-                  quantity ? <h4>₹{finalprice.toFixed(2)}</h4> : ""
-                } */}
-                {/* <div className="add-button">
-                  {quantity === 0 ? (
-                    <img
-                      className="black-add"
-                      src={add}
-                      height={35}
-                      onClick={() => addToCart(e)}
-                      alt="Add to cart"
-                    />
-                  ) : (
-                    <div className="quantity-pd">
-                      <img
-                        src={redremove}
-                        height={35}
-                        onClick={() => updateQuantity(e, quantity - 1)}
-                        alt="Remove from cart"
-                      />
-                      <span>{quantity}</span>
-                      <img
-                        src={greeenadd}
-                        height={35}
-                        onClick={() => updateQuantity(e, quantity + 1)}
-                        alt="Add to cart"
-                      />
-                    </div>
-                  )}
-                </div> */}
               </div>
             </div>
           )

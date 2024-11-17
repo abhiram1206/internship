@@ -58,4 +58,7 @@
         width: 90px;
         height: 55px;
     }
+    .sm-content .t{
+        font-size: 14px;
+    }
 }

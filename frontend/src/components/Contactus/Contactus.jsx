@@ -1,14 +1,18 @@
+// Contactus.jsx
 import React from 'react'
 import CustomerCare from '../CustomerCare/CustomerCare'
 import arrow from '../../assets/arrow (1).png'
 import Navbar from '../Navbar/Navbar'
 import { Link } from 'react-router-dom'
+import './Contactus.css'
 
 const Contactus = () => {
   return (
-    <div style={{padding:"3vw"}}>
-        <Link to={'/'}><img src={arrow} alt="" className='back'/></Link>
-        <CustomerCare heading={"Contact US"}/>
+    <div className="contact-container">
+      <Link to='/' className="back-link">
+        <img src={arrow} alt="Back" className="back-arrow"/>
+      </Link>
+      <CustomerCare heading="Contact US" />
     </div>
   )
 }

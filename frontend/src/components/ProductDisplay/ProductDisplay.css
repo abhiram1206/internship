@@ -301,3 +301,41 @@
     height: 4vw;
   }
 }
+
+/* Add these styles to your ProductDisplay.css */
+
+.casement-heading {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.casement-heading h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Media Queries for Tablet */
+@media screen and (min-width: 768px) {
+  .casement-heading {
+    padding: 30px;
+  }
+
+  .casement-heading h1 {
+    font-size: 32px;
+  }
+}
+
+/* Media Queries for Desktop */
+@media screen and (min-width: 1024px) {
+  .casement-heading {
+    padding: 40px;
+  }
+
+  .casement-heading h1 {
+    font-size: 40px;
+  }
+}
