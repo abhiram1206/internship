@@ -105,6 +105,8 @@ const HomeProduct = () => {
               className="hp-category-card"
             >
               <img
+                width={80}
+                height={80}
                 className={categoryClick === e.category.name ? 'hp-active' : ''}
                 src={e.category.image}
                 alt=""

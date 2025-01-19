@@ -60,8 +60,7 @@
   }
   
   .hp-category-card img {
-    width: 5vw;
-    border-radius: 50px;
+    border-radius: 50%;
     transition: border 0.3s;
   }
   

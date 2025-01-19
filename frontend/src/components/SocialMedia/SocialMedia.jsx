@@ -13,10 +13,10 @@ const SocialMedia = () => {
     <div className='sm-container'>
         <div className="sm-content">
             <div className="sm-logo">
-                <img src={logo} alt="" />
+                <img src={logo}  alt="" />
                 <img src={made} alt="" />
             </div>
-            <p className='t'>Our company is a comprehensive enterprise that integrates the research and development, production, sales, and service of PVC-U profiles in China. We offer a wide range of products including uPVC profiles, uPVC aluminum profiles, uPVC windows, uPVC doors, uPVC sliding windows, uPVC casement windows, uPVC swing doors, and more.</p>
+            <p className='t'>Our company is a comprehensive enterprise that integrates the research and development, production, sales, and service of uPVC in India. We offer a wide range of products including uPVC profiles, uPVC aluminum profiles, uPVC windows, uPVC doors, uPVC sliding windows, uPVC casement windows, uPVC swing doors, and more.</p>
             <div className="sm-icons">
                 <Link to={"https://www.facebook.com/share/1CVN8PmA1r/"}><img src={facebook} alt="" /></Link>
                 <Link to={"https://www.instagram.com/utmostupvc/"}><img src={insta} alt="" /></Link>

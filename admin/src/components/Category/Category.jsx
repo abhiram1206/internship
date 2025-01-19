@@ -20,7 +20,7 @@ const Category = () => {
     }
     
     const handleSubmit = (e) => {
-        let serverRoute = '/addcategory'
+        let serverRoute = 'addcategory'
         e.preventDefault();
         let form = new FormData(categoryForm.current)
         let formData = {}
