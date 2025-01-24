@@ -41,7 +41,7 @@ const ProductAdd = () => {
     
     let form = new FormData(productForm.current);
 
-    userAuthThroughServer('/product', form);
+    userAuthThroughServer('product', form);
   };
 
   return (

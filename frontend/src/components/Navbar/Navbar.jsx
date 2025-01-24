@@ -40,6 +40,11 @@ const Navbar = () => {
                 <li><Link to={'/product'} onClick={()=>setMenu('products')} className={menu==='products'?'active':""}>Products</Link></li>
                 <li><Link to={'/aboutus'} onClick={()=>setMenu('aboutus')} className={menu==='aboutus'?'active':""}>About us</Link></li>
                 <li><Link to={'/contactus'} onClick={()=>setMenu('contactus')} className={menu==='contactus'?'active':""}>Contact us</Link></li>
+                <li>
+                    <a className="db" href="/Broucher.pdf" download="Broucher.pdf">
+                        Download Brochure
+                    </a>
+                </li>
             </ul>
         </div>
         <div className="menu-drop" onClick={handleUserNavPanel} onBlur={handleNavBlur}>

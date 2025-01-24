@@ -119,6 +119,13 @@
     height: 50px;
 }
 
+.db{
+    background-color: #ffffff;
+    color: black;
+    padding: 1vw;
+    border-radius: 100px;
+}
+
 
 @media only screen and (max-width: 950px){
     .navbar-left{

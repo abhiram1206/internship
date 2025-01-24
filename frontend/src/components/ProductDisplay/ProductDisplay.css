@@ -339,3 +339,16 @@
     font-size: 40px;
   }
 }
+.casement-heading{
+  width: 32%;
+}
+.category-section{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}

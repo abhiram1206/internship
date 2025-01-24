@@ -94,11 +94,16 @@ const ProductDisplay = () => {
     return stars;
   };
 
-  const filteredProducts = products.filter((product) => {
-    const inCategory = selectedCategories.length === 0 || selectedCategories.includes(product.categoryinProduct);
-    const inPriceRange = renderValue(product.offerprice) <= priceRange;
-    return inCategory && inPriceRange;
-  });
+  // Group products by category
+  const groupedProducts = products.reduce((acc, product) => {
+    const category = product.categoryinProduct;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(product);
+    return acc;
+  }, {});
+
 
   return (
     <div className='product-display'>
@@ -128,30 +133,47 @@ const ProductDisplay = () => {
         </div>
       </div> */}
       
-      <div className="casement-heading">
-        <h1>Casement Series</h1>
-      </div>
 
-      <hr className='left-hr' />
+      
       <div className="product-dis">
-        {filteredProducts.map((e) => {
-          let percentage = 100 - (renderValue(e.offerprice) / renderValue(e.price)) * 100;
-          let quantity = getProductQuantity(e._id);
-          let averageRating = calculateAverageRating(e.reviews);
-          let finalprice = e.offerprice * quantity * e.productWeight * 6
-          finalprice = Math.round(finalprice)
-          return (
-            <div className="product-card-1" key={e._id}>
-              <div className="product-image-1">
-                <img src={import.meta.env.VITE_SERVER_DOMAIN +`/${e.image}`} alt={e.name} />
-              </div>
-              <div className="product-details-1">
-                <h3><Link to={`/products/${e._id}`} className='title'>{e.name}</Link></h3>
-              </div>
-            </div>
-          )
-        })}
-      </div>
+          {Object.keys(groupedProducts).map((category) => {
+            const filteredCategoryProducts = groupedProducts[category].filter((product) => {
+              const inCategory = selectedCategories.length === 0 || selectedCategories.includes(category);
+              const inPriceRange = renderValue(product.offerprice) <= priceRange;
+              return inCategory && inPriceRange;
+            });
+
+            return (
+              filteredCategoryProducts.length > 0 && (
+                <div key={category} className="category-section">
+                  <div className="casement-heading">
+                    <h1>{category}</h1>
+                  </div>
+                  <hr className='left-hr' />
+                  <div className="product-list">
+                    {filteredCategoryProducts.map((e) => {
+                      let percentage = 100 - (renderValue(e.offerprice) / renderValue(e.price)) * 100;
+                      let quantity = getProductQuantity(e._id);
+                      let averageRating = calculateAverageRating(e.reviews);
+                      let finalprice = e.offerprice * quantity * e.productWeight * 6;
+                      finalprice = Math.round(finalprice);
+                      return (
+                        <div className="product-card-1" key={e._id}>
+                          <div className="product-image-1">
+                            <img src={import.meta.env.VITE_SERVER_DOMAIN + `/${e.image}`} alt={e.name} />
+                          </div>
+                          <div className="product-details-1">
+                            <h3><Link to={`/products/${e._id}`} className='title'>{e.name}</Link></h3>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )
+            );
+          })}
+        </div>
     </div>
   );
 };

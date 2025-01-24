@@ -62,7 +62,7 @@ const UpdateProduct = () => {
       form.append('image', selectedImage);
     }
 
-    userAuthThroughServer(`/updateproduct/${id}`, form);
+    userAuthThroughServer(`updateproduct/${id}`, form);
   };
 
   return (
